@@ -1,0 +1,89 @@
+{
+  "slug": "rag-chatbot",
+  "title": "RAG Chatbot",
+  "tagline": "Production-grade Retrieval-Augmented Generation system with hybrid search and evaluation",
+  "description": "Enterprise RAG platform supporting multiple document types (PDF, Notion, Confluence, GitHub, Slack), hybrid search (dense + sparse + keyword), re-ranking, query rewriting, and automated evaluation pipeline. Handles 10M+ documents with sub-second latency.",
+  "problem": "Naive RAG fails on: domain-specific terminology, table/chart extraction, conflicting sources, stale data, and hallucination. Enterprise needs: access control, audit trails, cost tracking, and measurable quality.",
+  "solution": "Modular pipeline: 1) Ingestion: Unstructured.io for parsing → chunking (semantic + fixed) → metadata extraction, 2) Embedding: Mixed embedding models (BGE-large + domain-adapted), 3) Index: Pinecone hybrid (dense + BM25), 4) Retrieval: Query rewriting (HyDE) → hybrid search → cross-encoder re-rank → MMR diversification, 5) Generation: GPT-4 with citation prompt + guardrails, 6) Eval: RAGAS + custom golden set → CI/CD gate.",
+  "architecture": "Microservices (Docker/K8s): Ingestion Workers (Celery+Redis) → Embedding Service (GPU batch) → Pinecone → API Gateway (FastAPI) → LLM Gateway (cost routing) → PostgreSQL (audit/metrics) → Grafana. Multi-tenant with row-level security.",
+  "techStack": [
+    {
+      "name": "LangChain",
+      "category": "ai",
+      "icon": "langchain"
+    },
+    {
+      "name": "LlamaIndex",
+      "category": "ai",
+      "icon": "llamaindex"
+    },
+    {
+      "name": "Pinecone",
+      "category": "ai",
+      "icon": "pinecone"
+    },
+    {
+      "name": "Unstructured.io",
+      "category": "backend",
+      "icon": "unstructured"
+    },
+    {
+      "name": "BGE Embeddings",
+      "category": "ai",
+      "icon": "huggingface"
+    },
+    {
+      "name": "FastAPI",
+      "category": "backend",
+      "icon": "fastapi"
+    },
+    {
+      "name": "Celery/Redis",
+      "category": "backend",
+      "icon": "redis"
+    },
+    {
+      "name": "Kubernetes",
+      "category": "devops",
+      "icon": "kubernetes"
+    },
+    {
+      "name": "RAGAS",
+      "category": "ai",
+      "icon": "ragas"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/projects/rag-chatbot-1.webp",
+      "alt": "Document ingestion and processing pipeline",
+      "caption": "Multi-source ingestion with processing status"
+    },
+    {
+      "src": "/images/projects/rag-chatbot-2.webp",
+      "alt": "Chat interface with citations",
+      "caption": "Chat UI with inline citations and source preview"
+    },
+    {
+      "src": "/images/projects/rag-chatbot-3.webp",
+      "alt": "Evaluation dashboard with RAGAS metrics",
+      "caption": "Automated evaluation pipeline with quality gates"
+    }
+  ],
+  "links": {
+    "github": "",
+    "live": "",
+    "caseStudy": "",
+    "demo": ""
+  },
+  "lessonsLearned": [
+    "Query rewriting (HyDE) essential for conversational follow-ups",
+    "Evaluation must be continuous; static golden sets drift within 2 weeks"
+  ],
+  "featured": false,
+  "publishState": "published",
+  "order": 7,
+  "status": "live",
+  "startedAt": "2023-11-01T00:00:00Z",
+  "launchedAt": "2024-04-10T00:00:00Z"
+}

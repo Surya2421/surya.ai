@@ -1,0 +1,90 @@
+{
+  "slug": "linkedin-post-generator",
+  "title": "LinkedIn Post Generator",
+  "tagline": "AI-powered content engine that writes viral LinkedIn posts in your voice",
+  "description": "An intelligent content generation system that analyzes your writing style, industry trends, and engagement patterns to produce LinkedIn posts that sound authentically you. Built with LangChain, OpenAI GPT-4, and a custom fine-tuning pipeline.",
+  "problem": "Content creators and professionals struggle to maintain consistent LinkedIn presence. Writing engaging posts takes 30-60 minutes each, leading to burnout and inconsistent posting. Existing AI tools produce generic, robotic content that damages personal brand credibility.",
+  "solution": "A multi-stage AI pipeline that: 1) Ingests user's historical posts to learn voice/style, 2) Monitors industry trends via RSS/API, 3) Generates post ideas with viral potential scoring, 4) Drafts posts in user's voice with editable variants, 5) Predicts engagement before publishing, 6) Schedules optimal posting times.",
+  "architecture": "Event-driven microservices on Vercel/Edge: Ingestion Service (webhooks + scheduled jobs) → Voice Profile Builder (embeddings + fine-tuning) → Trend Monitor (RSS + Twitter API) → Idea Generator (GPT-4 + RAG) → Post Drafter (few-shot + style transfer) → Engagement Predictor (regression model) → Scheduler (cron + timezone aware). Data: PostgreSQL + Redis + Pinecone for vectors.",
+  "techStack": [
+    {
+      "name": "Next.js 15",
+      "category": "frontend",
+      "icon": "nextjs"
+    },
+    {
+      "name": "TypeScript",
+      "category": "frontend",
+      "icon": "typescript"
+    },
+    {
+      "name": "LangChain",
+      "category": "ai",
+      "icon": "langchain"
+    },
+    {
+      "name": "OpenAI GPT-4",
+      "category": "ai",
+      "icon": "openai"
+    },
+    {
+      "name": "PostgreSQL",
+      "category": "backend",
+      "icon": "postgresql"
+    },
+    {
+      "name": "Redis",
+      "category": "backend",
+      "icon": "redis"
+    },
+    {
+      "name": "Pinecone",
+      "category": "ai",
+      "icon": "pinecone"
+    },
+    {
+      "name": "Vercel Edge",
+      "category": "devops",
+      "icon": "vercel"
+    },
+    {
+      "name": "Tailwind CSS",
+      "category": "design",
+      "icon": "tailwind"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/projects/linkedin-post-generator-1.webp",
+      "alt": "Dashboard showing post generation pipeline",
+      "caption": "Main dashboard with voice profile and trend monitoring"
+    },
+    {
+      "src": "/images/projects/linkedin-post-generator-2.webp",
+      "alt": "Post editor with AI-generated variants",
+      "caption": "Editing interface with multiple AI-generated variants"
+    },
+    {
+      "src": "/images/projects/linkedin-post-generator-3.webp",
+      "alt": "Analytics showing engagement predictions",
+      "caption": "Engagement prediction and scheduling interface"
+    }
+  ],
+  "links": {
+    "github": "",
+    "live": "",
+    "caseStudy": "",
+    "demo": ""
+  },
+  "lessonsLearned": [
+    "Voice cloning requires 50+ samples for authenticity; fewer creates uncanny valley effect",
+    "Engagement prediction models need domain-specific training; generic models fail on niche topics",
+    "Edge functions cold starts add 200-500ms latency; warming strategies critical for UX"
+  ],
+  "featured": true,
+  "publishState": "published",
+  "order": 3,
+  "status": "live",
+  "startedAt": "2024-01-15T00:00:00Z",
+  "launchedAt": "2024-06-20T00:00:00Z"
+}

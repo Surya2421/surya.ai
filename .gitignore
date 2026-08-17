@@ -39,3 +39,25 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# Local auth/runtime state
+/data/admin.json
+/data/media.json
+
+# Runtime uploads
+/public/uploads/
+
+# Manus artifacts
+/.manus-*.zip
+/.manus-sync-*
+
+# QA scratch files
+/.qa-*.md
+/.external-validation.md
+
+# Generated portrait artifacts
+/public/images/.portrait-output
+/public/images/surya-portrait-alpha.png
+/public/images/surya-portrait-integrated.png
+
+# Root archives
+/*.zip

@@ -1,0 +1,87 @@
+{
+  "slug": "ai-birthday-wisher",
+  "title": "AI Birthday Wisher",
+  "tagline": "Personalized video birthday wishes generated at scale using AI avatars",
+  "description": "An automated system that creates personalized birthday video messages for each recipient using AI-generated avatars, custom scripts based on relationship context, and dynamic video composition. Handles 1000+ wishes/day with unique content per person.",
+  "category": "AI & Engineering",
+  "status": "live",
+  "publishState": "published",
+  "featured": true,
+  "order": 5,
+  "problem": "Sending personalized birthday wishes at scale is impossible manually. Generic mass messages feel impersonal and damage relationships. Existing tools only do text/email, not video. Video production per person takes 5+ minutes.",
+  "solution": "End-to-end pipeline: 1) Contact ingestion (CSV/CRM sync) with relationship metadata, 2) Script generator (GPT-4) creates unique message per person using context (how you know them, shared memories, inside jokes), 3) Avatar selector matches persona to relationship type, 4) Video synthesis (HeyGen/D-ID API) with lip-sync, 5) Delivery via WhatsApp/Email/SMS with tracking.",
+  "architecture": "Serverless functions on AWS Lambda: Ingestion → Context Enrichment (OpenAI) → Script Generation (GPT-4 with few-shot) → Avatar Selection (rule-based + ML) → Video Generation (HeyGen API async) → Delivery Queue (SQS + SES/Twilio) → Analytics Dashboard (Next.js + PostHog). Cost: ~$0.15/video at scale.",
+  "techStack": [
+    {
+      "name": "Next.js 14",
+      "category": "frontend",
+      "icon": "nextjs"
+    },
+    {
+      "name": "AWS Lambda",
+      "category": "backend",
+      "icon": "aws"
+    },
+    {
+      "name": "OpenAI GPT-4",
+      "category": "ai",
+      "icon": "openai"
+    },
+    {
+      "name": "HeyGen API",
+      "category": "ai",
+      "icon": "heygen"
+    },
+    {
+      "name": "PostgreSQL",
+      "category": "backend",
+      "icon": "postgresql"
+    },
+    {
+      "name": "SQS/SNS",
+      "category": "devops",
+      "icon": "aws"
+    },
+    {
+      "name": "Twilio",
+      "category": "backend",
+      "icon": "twilio"
+    },
+    {
+      "name": "Tailwind CSS",
+      "category": "design",
+      "icon": "tailwind"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/projects/ai-birthday-wisher-1.webp",
+      "alt": "Contact import and relationship mapping",
+      "caption": "Contact import with relationship context tagging"
+    },
+    {
+      "src": "/images/projects/ai-birthday-wisher-2.webp",
+      "alt": "Generated video preview",
+      "caption": "Preview of personalized AI avatar video"
+    },
+    {
+      "src": "/images/projects/ai-birthday-wisher-3.webp",
+      "alt": "Delivery analytics dashboard",
+      "caption": "Delivery tracking and engagement analytics"
+    }
+  ],
+  "links": {
+    "github": "https://github.com/Surya2421/ai-birthday-wisher",
+    "live": "",
+    "caseStudy": "",
+    "demo": ""
+  },
+  "lessonsLearned": [
+    "Video generation APIs have 2-5min latency; async queue with webhooks essential",
+    "Relationship context quality directly correlates with recipient delight (NPS +34)",
+    "HeyGen avatar limits require pooling strategy for high-volume days"
+  ],
+  "startedAt": "2024-03-10T00:00:00Z",
+  "launchedAt": "2024-08-15T00:00:00Z",
+  "lastUpdated": "2026-08-15T16:14:04.237Z"
+}

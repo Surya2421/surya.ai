@@ -1,0 +1,87 @@
+{
+  "slug": "mini-ai-news-agent",
+  "title": "Mini AI News Agent",
+  "tagline": "Autonomous daily tech newsletter curated by AI agents with personalized briefings",
+  "description": "A lightweight news aggregation agent that monitors 200+ sources (RSS, Twitter, GitHub, HackerNews, ArXiv), filters for relevance using embeddings, clusters related stories, generates summaries with citations, and delivers personalized daily briefings via email/Slack/Notion. Open source, self-hostable.",
+  "category": "AI & Engineering",
+  "status": "live",
+  "publishState": "published",
+  "featured": true,
+  "order": 6,
+  "problem": "Tech professionals drown in information. Manual curation takes 30min/day. Existing newsletters are generic. Need: personalized relevance, source diversity, actionable summaries, zero maintenance.",
+  "solution": "Cron job (daily 6AM): 1) Fetch from 200+ sources via RSS/API, 2) Dedupe + embed (BGE-small), 3) Cluster (HDBSCAN) → story groups, 4) Relevance scoring per user profile (embeddings + keywords), 5) Top-k per cluster → GPT-4o-mini summary with citations, 6) Render HTML/Markdown → deliver (SendGrid/Slack/Notion API). User onboarding: OAuth + interest embedding from GitHub/LinkedIn.",
+  "architecture": "Single binary (Go) + SQLite: Fetcher (concurrent) → Embedder (ONNX runtime) → Clusterer → Scorer → Summarizer (OpenAI batch) → Renderer → Delivery. Deployed on Fly.io (free tier). Config: YAML. Extensible source plugins.",
+  "techStack": [
+    {
+      "name": "Go",
+      "category": "backend",
+      "icon": "go"
+    },
+    {
+      "name": "BGE Embeddings",
+      "category": "ai",
+      "icon": "huggingface"
+    },
+    {
+      "name": "ONNX Runtime",
+      "category": "ai",
+      "icon": "onnx"
+    },
+    {
+      "name": "HDBSCAN",
+      "category": "ai",
+      "icon": "hdbscan"
+    },
+    {
+      "name": "OpenAI GPT-4o-mini",
+      "category": "ai",
+      "icon": "openai"
+    },
+    {
+      "name": "SQLite",
+      "category": "backend",
+      "icon": "sqlite"
+    },
+    {
+      "name": "Fly.io",
+      "category": "devops",
+      "icon": "fly"
+    },
+    {
+      "name": "SendGrid",
+      "category": "backend",
+      "icon": "sendgrid"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/projects/mini-ai-news-agent-1.webp",
+      "alt": "Daily newsletter email preview",
+      "caption": "Personalized daily briefing email"
+    },
+    {
+      "src": "/images/projects/mini-ai-news-agent-2.webp",
+      "alt": "Source clustering visualization",
+      "caption": "Story clusters with relevance scores"
+    },
+    {
+      "src": "/images/projects/mini-ai-news-agent-3.webp",
+      "alt": "User preference configuration",
+      "caption": "Interest tuning via embedding space"
+    }
+  ],
+  "links": {
+    "github": "",
+    "live": "",
+    "caseStudy": "",
+    "demo": ""
+  },
+  "lessonsLearned": [
+    "GPT-4o-mini costs $0.00015/summary; 1000 users = $0.15/day",
+    "HDBSCAN on embeddings creates coherent clusters without predefined categories",
+    "User interest embeddings from GitHub stars beat explicit topic selection"
+  ],
+  "startedAt": "2024-02-15T00:00:00Z",
+  "launchedAt": "2024-05-01T00:00:00Z",
+  "lastUpdated": "2026-08-15T16:14:08.065Z"
+}

@@ -1,0 +1,94 @@
+{
+  "slug": "langgraph-search-agent",
+  "title": "LangGraph Search Agent",
+  "tagline": "Multi-agent research system that plans, searches, and synthesizes answers autonomously",
+  "description": "A sophisticated research agent built on LangGraph that decomposes complex queries into search plans, executes parallel searches across multiple sources (web, academic, code, internal docs), evaluates credibility, and synthesizes cited answers. Features human-in-the-loop verification and iterative refinement.",
+  "category": "AI & Engineering",
+  "status": "live",
+  "publishState": "published",
+  "featured": true,
+  "order": 2,
+  "problem": "LLMs hallucinate on complex research tasks. Single-shot search misses nuance. Users need transparent, verifiable answers with citations for high-stakes decisions (technical architecture, market research, competitive analysis).",
+  "solution": "LangGraph state machine with 5 specialized agents: 1) Planner breaks query into sub-questions + search strategy, 2) Searcher executes parallel queries (SerpAPI, ArXiv, GitHub, custom indexes), 3) Evaluator scores source credibility + relevance, 4) Synthesizer writes cited answer with confidence scores, 5) Critic reviews for gaps/hallucinations → loops back. Human can intervene at any step.",
+  "howItWorks": "",
+  "architecture": "LangGraph (stateful DAG) on Python FastAPI: State persists in Redis. Agents as separate nodes with typed state transitions. Search: SerpAPI + custom embeddings (Pinecone) for internal docs. Evaluation: Heuristic + LLM judge. Synthesis: GPT-4 with citation formatting. Deployed on Railway with websockets for real-time progress.",
+  "techStack": [
+    {
+      "name": "LangGraph",
+      "category": "ai",
+      "icon": "langchain"
+    },
+    {
+      "name": "Python/FastAPI",
+      "category": "backend",
+      "icon": "python"
+    },
+    {
+      "name": "LangChain",
+      "category": "ai",
+      "icon": "langchain"
+    },
+    {
+      "name": "OpenAI GPT-4",
+      "category": "ai",
+      "icon": "openai"
+    },
+    {
+      "name": "SerpAPI",
+      "category": "backend",
+      "icon": "serpapi"
+    },
+    {
+      "name": "Pinecone",
+      "category": "ai",
+      "icon": "pinecone"
+    },
+    {
+      "name": "Redis",
+      "category": "backend",
+      "icon": "redis"
+    },
+    {
+      "name": "Railway",
+      "category": "devops",
+      "icon": "railway"
+    },
+    {
+      "name": "Next.js",
+      "category": "frontend",
+      "icon": "nextjs"
+    }
+  ],
+  "coverImage": "",
+  "youtubeUrl": "",
+  "vimeoUrl": "",
+  "screenshots": [
+    {
+      "src": "/images/projects/langgraph-search-agent-1.webp",
+      "alt": "Research query input and plan visualization",
+      "caption": "Query decomposition and search plan visualization"
+    },
+    {
+      "src": "/images/projects/langgraph-search-agent-2.webp",
+      "alt": "Real-time agent execution trace",
+      "caption": "Live agent execution with step-by-step reasoning"
+    },
+    {
+      "src": "/images/projects/langgraph-search-agent-3.webp",
+      "alt": "Final synthesized answer with citations",
+      "caption": "Cited answer with confidence scores and source links"
+    }
+  ],
+  "links": {
+    "github": "https://github.com/Surya2421/langgraph-search-agent",
+    "live": "",
+    "caseStudy": "",
+    "demo": ""
+  },
+  "lessonsLearned": [],
+  "challenges": [],
+  "futureImprovements": [],
+  "startedAt": "2024-05-01T00:00:00Z",
+  "launchedAt": "2024-11-15T00:00:00Z",
+  "lastUpdated": "2026-08-15T16:16:45.081Z"
+}

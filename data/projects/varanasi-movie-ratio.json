@@ -1,0 +1,86 @@
+{
+  "slug": "varanasi-movie-ratio",
+  "title": "Varanasi Movie Ratio Website",
+  "tagline": "Cinematic aspect ratio explorer for films shot in Varanasi - a love letter to the city",
+  "description": "An interactive visual essay exploring the aspect ratios of films shot in Varanasi. Features a curated database of 47 films, interactive ratio comparison tool, location mapping, and director interviews. Built as a personal passion project combining film history, data visualization, and the city's cinematic legacy.",
+  "problem": "No centralized resource documents Varanasi's cinematic history. Film scholars and enthusiasts scatter across forums. Aspect ratio choices reveal directorial intent but are rarely analyzed in context of location.",
+  "solution": "Editorial web experience: 1) Film database (Airtable → JSON) with metadata (ratio, year, director, locations, cinematographer), 2) Interactive ratio viewer: overlay any two films' frames synchronized by timeline, 3) Mapbox map with geotagged shooting locations + Street View, 4) Director/cinematographer interview carousel (original research), 5) Export: generate comparison images for social sharing. Static site (Astro) for performance.",
+  "architecture": "Astro (static) + vanilla JS interactions: Data: Airtable (CMS) → build-time JSON → GitHub Actions deploy to Cloudflare Pages. Interactions: Canvas API for ratio overlay, IntersectionObserver for scroll reveals, Mapbox GL for locations. No backend. Lighthouse 100/100.",
+  "techStack": [
+    {
+      "name": "Astro",
+      "category": "frontend",
+      "icon": "astro"
+    },
+    {
+      "name": "TypeScript",
+      "category": "frontend",
+      "icon": "typescript"
+    },
+    {
+      "name": "Mapbox GL",
+      "category": "frontend",
+      "icon": "mapbox"
+    },
+    {
+      "name": "Canvas API",
+      "category": "frontend",
+      "icon": "canvas"
+    },
+    {
+      "name": "Airtable",
+      "category": "backend",
+      "icon": "airtable"
+    },
+    {
+      "name": "Cloudflare Pages",
+      "category": "devops",
+      "icon": "cloudflare"
+    },
+    {
+      "name": "GitHub Actions",
+      "category": "devops",
+      "icon": "github"
+    },
+    {
+      "name": "Tailwind CSS",
+      "category": "design",
+      "icon": "tailwind"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/projects/varanasi-movie-ratio-1.webp",
+      "alt": "Film gallery with aspect ratio badges",
+      "caption": "Curated film gallery with aspect ratio visualization"
+    },
+    {
+      "src": "/images/projects/varanasi-movie-ratio-2.webp",
+      "alt": "Interactive ratio comparison tool",
+      "caption": "Side-by-side synchronized frame comparison"
+    },
+    {
+      "src": "/images/projects/varanasi-movie-ratio-3.webp",
+      "alt": "Varanasi shooting locations map",
+      "caption": "Geotagged locations with Street View integration"
+    }
+  ],
+  "links": {
+    "github": "",
+    "live": "",
+    "caseStudy": "",
+    "demo": ""
+  },
+  "lessonsLearned": [
+    "Static site + Airtable CMS = zero maintenance content updates; perfect for editorial projects",
+    "Canvas-based ratio overlay runs at 60fps on mobile; no WebGL needed",
+    "Original research (interviews) creates unique value; 3 directors responded to cold email",
+    "Niche projects build unexpected authority; led to speaking invite at film festival"
+  ],
+  "featured": false,
+  "publishState": "published",
+  "order": 8,
+  "status": "live",
+  "startedAt": "2023-08-01T00:00:00Z",
+  "launchedAt": "2024-02-14T00:00:00Z"
+}

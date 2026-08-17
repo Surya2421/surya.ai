@@ -1,0 +1,90 @@
+{
+  "slug": "roadpulse-ai",
+  "title": "RoadPulse AI",
+  "tagline": "Real-time traffic intelligence platform using computer vision on municipal camera feeds",
+  "description": "City-scale traffic monitoring system that ingests 500+ live camera feeds, runs real-time object detection (YOLOv8) to count vehicles, classify types, measure speeds, and detect incidents. Dashboard for traffic engineers with predictive congestion forecasting and automated alerting.",
+  "problem": "Cities rely on inductive loop sensors (expensive, sparse, no visual context) or manual camera monitoring (unscalable). No real-time vehicle classification or incident detection. Traffic engineers make decisions on 15-min delayed aggregate data.",
+  "solution": "Edge + Cloud hybrid: 1) Edge boxes (Jetson Orin) at intersections run YOLOv8 + ByteTrack for detection/tracking, 2) Stream metadata (not video) to cloud via MQTT, 3) Cloud aggregates across corridors, runs congestion prediction (LSTM), 4) Dashboard (Mapbox GL + WebGL) shows live + predicted state, 5) Alerts via PagerDuty/Slack for incidents. Privacy: no video stored, faces/plates blurred at edge.",
+  "architecture": "IoT Edge (NVIDIA Jetson) → MQTT/Kafka → Cloud (GCP Dataflow + BigQuery) → Prediction Service (Python/Flask + TensorFlow) → Dashboard (Next.js + Mapbox + WebSockets). 500 cameras @ 10fps = 5000 detections/sec. Cost: $2.30/camera/month.",
+  "techStack": [
+    {
+      "name": "YOLOv8",
+      "category": "ai",
+      "icon": "yolo"
+    },
+    {
+      "name": "NVIDIA Jetson",
+      "category": "devops",
+      "icon": "nvidia"
+    },
+    {
+      "name": "Python/TensorFlow",
+      "category": "ai",
+      "icon": "python"
+    },
+    {
+      "name": "Kafka/MQTT",
+      "category": "backend",
+      "icon": "kafka"
+    },
+    {
+      "name": "GCP Dataflow",
+      "category": "devops",
+      "icon": "gcp"
+    },
+    {
+      "name": "BigQuery",
+      "category": "backend",
+      "icon": "bigquery"
+    },
+    {
+      "name": "Mapbox GL",
+      "category": "frontend",
+      "icon": "mapbox"
+    },
+    {
+      "name": "Next.js 15",
+      "category": "frontend",
+      "icon": "nextjs"
+    },
+    {
+      "name": "Tailwind CSS",
+      "category": "design",
+      "icon": "tailwind"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/projects/roadpulse-ai-1.webp",
+      "alt": "Live traffic dashboard with camera overlay",
+      "caption": "Real-time corridor view with live camera feeds"
+    },
+    {
+      "src": "/images/projects/roadpulse-ai-2.webp",
+      "alt": "Congestion prediction heatmap",
+      "caption": "30-minute predictive congestion forecasting"
+    },
+    {
+      "src": "/images/projects/roadpulse-ai-3.webp",
+      "alt": "Incident detection alert panel",
+      "caption": "Automated incident detection and alerting"
+    }
+  ],
+  "links": {
+    "github": "",
+    "live": "",
+    "caseStudy": "",
+    "demo": ""
+  },
+  "lessonsLearned": [
+    "Edge inference on Jetson Orin: 8ms/frame for YOLOv8n @ 640x640; 500 cameras need fleet management",
+    "MQTT QoS 1 + persistent sessions critical for unreliable municipal networks",
+    "Privacy-by-design (blur at edge) eliminated legal review cycles - 6mo faster deployment"
+  ],
+  "featured": true,
+  "publishState": "published",
+  "order": 4,
+  "status": "in-progress",
+  "startedAt": "2024-07-01T00:00:00Z",
+  "launchedAt": null
+}

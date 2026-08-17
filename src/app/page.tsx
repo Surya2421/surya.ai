@@ -1,65 +1,137 @@
-import Image from "next/image";
+import Link from 'next/link';
+import {
+  ArrowDown,
+  ArrowUpRight,
+  Braces,
+  FlaskConical,
+  PackageCheck,
+  RefreshCw,
+} from 'lucide-react';
+import { HeroPortrait } from '@/components/home/HeroPortrait';
+import { ProjectConstellation } from '@/components/projects/ProjectConstellation';
+import { SceneReveal } from '@/components/ui/SceneReveal';
+import { getProjectsData } from '@/lib/projects';
+import { getSiteSettings } from '@/lib/settings';
 
-export default function Home() {
+const loop = [
+  [Braces, 'Build', 'Turn a concrete problem into a working first version.'],
+  [FlaskConical, 'Test', 'Put model behavior, latency, and cost against real use.'],
+  [PackageCheck, 'Ship', 'Move past the demo and make the result usable.'],
+  [RefreshCw, 'Learn', 'Keep the evidence and improve the next build.'],
+] as const;
+
+export default async function HomePage() {
+  const [projects, settings] = await Promise.all([getProjectsData(), getSiteSettings()]);
+  const selected = projects.filter((project) => project.featured).length
+    ? projects.filter((project) => project.featured)
+    : projects.slice(0, 8);
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="system-page home-system">
+      <section className="home-entry system-container">
+        <div className="home-entry__copy">
+          <span className="system-label">Surya Teja · ECE student · AI builder</span>
+          <h1 className="system-display">
+            I build useful
+            <br />
+            things with <span className="system-signal-text">AI.</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+          <p>{settings.intro}</p>
+          <div className="home-entry__actions">
+            <Link href="/projects" className="system-button system-button--primary">
+              See what I built <ArrowUpRight />
+            </Link>
+            <Link href="/about" className="system-button system-button--ghost">
+              About me
+            </Link>
+          </div>
+          <div className="home-entry__proof">
+            <span>Agents</span>
+            <span>Automation</span>
+            <span>RAG</span>
+            <span>Computer vision</span>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <HeroPortrait />
+        <a className="home-entry__scroll" href="#work">
+          <ArrowDown />
+          <span>Selected work</span>
+        </a>
+        <div className="home-entry__telemetry">
+          <span>BASED IN INDIA</span>
+          <span>BUILDING IN PUBLIC</span>
         </div>
-      </main>
+      </section>
+      <section id="work" className="system-section home-projects">
+        <div className="system-container">
+          <SceneReveal className="home-section-head">
+            <div>
+              <span className="system-label">Selected work</span>
+              <h2 className="system-title">
+                Real builds,
+                <br />
+                with the decisions visible.
+              </h2>
+            </div>
+            <div>
+              <p>
+                The map is generated from project data. Add or feature a project in Admin and it
+                joins this view automatically.
+              </p>
+              <Link href="/projects">
+                View every project <ArrowUpRight />
+              </Link>
+            </div>
+          </SceneReveal>
+          <SceneReveal>
+            <ProjectConstellation projects={selected.slice(0, 8)} compact />
+          </SceneReveal>
+        </div>
+      </section>
+      <section className="system-section home-loop">
+        <div className="system-container">
+          <SceneReveal className="home-section-head">
+            <div>
+              <span className="system-label">How I work</span>
+              <h2 className="system-title">
+                Make it real.
+                <br />
+                Then make it better.
+              </h2>
+            </div>
+            <p>
+              I use small, complete iterations to move from uncertainty to evidence without hiding
+              the messy engineering.
+            </p>
+          </SceneReveal>
+          <div className="home-loop__grid">
+            {loop.map(([Icon, title, copy], index) => (
+              <SceneReveal key={title} delay={index * 0.05}>
+                <article>
+                  <span>0{index + 1}</span>
+                  <Icon />
+                  <h3>{title}</h3>
+                  <p>{copy}</p>
+                  <i />
+                </article>
+              </SceneReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="system-section home-handoff">
+        <div className="system-container">
+          <SceneReveal className="home-handoff__panel">
+            <div>
+              <span className="system-label">Open to useful work</span>
+              <h2 className="system-title">Have a real problem worth building around?</h2>
+              <p>{settings.availability}</p>
+            </div>
+            <Link href="/contact" className="system-button system-button--primary">
+              Start a conversation <ArrowUpRight />
+            </Link>
+          </SceneReveal>
+        </div>
+      </section>
     </div>
   );
 }

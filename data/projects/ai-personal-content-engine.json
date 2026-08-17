@@ -1,0 +1,92 @@
+{
+  "slug": "ai-personal-content-engine",
+  "title": "AI Personal Content Engine",
+  "tagline": "End-to-end content operating system: ideation → creation → distribution → analytics",
+  "description": "The flagship product - a comprehensive content OS that learns your voice, monitors your niche, generates content calendars, produces multi-format content (articles, threads, videos, carousels), schedules cross-platform distribution, and provides unified analytics with ROI attribution. Currently in private beta with 50 creators.",
+  "category": "AI & Engineering",
+  "status": "live",
+  "publishState": "published",
+  "featured": true,
+  "order": 1,
+  "problem": "Creator economy tools are fragmented: ideation (Notion), writing (Claude), design (Canva), scheduling (Buffer), analytics (separate per platform). No unified voice model. No cross-platform ROI. Context switching kills creativity.",
+  "solution": "Unified platform with 6 pillars: 1) Voice Engine: Fine-tuned LoRA on creator's corpus → consistent voice across formats, 2) Trend Radar: Monitors 500+ sources → opportunity scoring, 3) Content Studio: Multi-format editor with AI co-pilot (outline → draft → polish → format), 4) Distribution Engine: Native API publishing to 8 platforms + webhook fallback, 5) Analytics Hub: Unified metrics + attribution (UTM + first-touch + ML), 6) Monetization: Sponsorship matching + affiliate automation + product recommendations.",
+  "howItWorks": "",
+  "architecture": "Monorepo (Turborepo): Apps (Next.js web, React Native mobile, Electron desktop) + Packages (voice-engine, trend-radar, content-studio, distribution, analytics, monetization). Backend: Supabase (Postgres + Auth + Realtime + Edge Functions) + Pinecone (voice embeddings) + Redis (queues). AI: GPT-4o + Claude 3.5 + custom LoRA (Modal GPU). CI/CD: Vercel + EAS.",
+  "techStack": [
+    {
+      "name": "Next.js 15",
+      "category": "frontend",
+      "icon": "nextjs"
+    },
+    {
+      "name": "React Native",
+      "category": "frontend",
+      "icon": "react"
+    },
+    {
+      "name": "Turborepo",
+      "category": "devops",
+      "icon": "turborepo"
+    },
+    {
+      "name": "Supabase",
+      "category": "backend",
+      "icon": "supabase"
+    },
+    {
+      "name": "Pinecone",
+      "category": "ai",
+      "icon": "pinecone"
+    },
+    {
+      "name": "Modal",
+      "category": "ai",
+      "icon": "modal"
+    },
+    {
+      "name": "LoRA Fine-tuning",
+      "category": "ai",
+      "icon": "huggingface"
+    },
+    {
+      "name": "GPT-4o / Claude 3.5",
+      "category": "ai",
+      "icon": "openai"
+    },
+    {
+      "name": "Tailwind CSS",
+      "category": "design",
+      "icon": "tailwind"
+    }
+  ],
+  "coverImage": "",
+  "youtubeUrl": "",
+  "vimeoUrl": "",
+  "screenshots": [
+    {
+      "src": "/images/projects/ai-personal-content-engine-1.webp",
+      "alt": "Content calendar with AI suggestions",
+      "caption": "AI-powered content calendar with opportunity scores"
+    },
+    {
+      "src": "/images/projects/ai-personal-content-engine-2.webp",
+      "alt": "Multi-format content editor",
+      "caption": "Unified editor for articles, threads, carousels, scripts"
+    },
+    {
+      "src": "/uploads/ai-personal-content-engine/1786951093066-24769866697018486.jpg",
+      "alt": "24769866697018486.jpg"
+    }
+  ],
+  "links": {},
+  "lessonsLearned": [
+    "LoRA fine-tuning on 500 posts captures voice better than few-shot; 2hr training on A100",
+    "Cross-platform attribution requires UTM + fingerprinting; cookie-less world needs probabilistic matching",
+    "Creator workflows vary wildly; plugin architecture essential (Notion, Obsidian, Linear integrations)"
+  ],
+  "challenges": [],
+  "futureImprovements": [],
+  "startedAt": "2024-01-01T00:00:00Z",
+  "launchedAt": "2025-01-15T00:00:00Z",
+  "lastUpdated": "2026-08-17T07:18:20.066Z"
+}
